@@ -19,7 +19,24 @@
     <script>
         
         // add code here
-    
+        var selected_item = document.getElementById("select_item");
+        var ul = document.getElementById("shopList");
+
+        selected_item.addEventListener("change", addNewItem);
+
+        function addNewItem() {
+            var selected_Value = selected_item.value;  // define selectedvalue
+
+            var items = ul.getElementsByTagName("li");
+            for (var i = 0; i < items.length; i++ ){
+                if (items[i].textContent === selected_Value){
+                    return; // Item already present, dont add again
+                }
+            }
+            var li = document.createElement("li");
+            li.textContent = selected_Value;
+            ul.appendChild(li);
+        }
     </script>
 
     
